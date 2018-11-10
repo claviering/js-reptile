@@ -6,8 +6,18 @@ const DetailBaseUrl = 'http://gzjs.bazhuayu.com'
 const baseDir = './data/'
 const startPageNum = 1
 const endPageNum = 91
+if (fs.existsSync('detailUrl.txt')) {
+  fs.unlinkSync('detailUrl.txt')
+}
+if (fs.existsSync('tmpUrl.txt')) {
+  fs.unlinkSync('tmpUrl.txt')
+}
+if (fs.existsSync('data.json')) {
+  fs.unlinkSync('data.json')
+}
 
-async function run (callback) {
+
+function run (callback) {
   for (let pageNum = startPageNum; pageNum <= endPageNum; pageNum++) {
     let tmpUrl = baseUrl + pageNum
     http.get(tmpUrl, res => {
@@ -66,12 +76,9 @@ function saveFailUrl(fileName, data) {
     if (err) throw err;
   });
 }
-
-let resList = []
-var wstream = fs.createWriteStream('myOutput.txt');
+var stream = fs.createWriteStream("data.json");
 run((res) => {
-  resList.push(res)
-  fs.writeFile('data.json', JSON.stringify(resList), (err) => {
+  stream.write(JSON.stringify(res) + '\n', (err) => {
     if (err) {
       return console.log('write file error', err);
     }
