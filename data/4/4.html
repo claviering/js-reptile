@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>商品列表</title>
+  <link rel="stylesheet" href="/css/list.css" />
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+      $(function(){
+          var width=0;
+          $("#page-list").find("a").each(function(){ width = width + $(this).outerWidth(true); });
+          $("#page-list").find("b").each(function(){ width = width + $(this).outerWidth(true); });
+          $("#page-list").width(width);
+      });
+  </script>
+</head>
+<body style="height: auto;background-color: #03305c;">
+  <div class="container title">手机特卖</div>
+  <div class="container">
+    <ul id="goodsList" class="clearfix">
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/29712264630">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/29712264630.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1498.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/29712264630">
+              <em class="phone-name">vivo Z1 新一代全面屏 双摄拍照 移动联通电信4G全网通 双卡双待 4G+64G大内 智能手机 极光特别版</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">vivo官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/6577477">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/6577477.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">5499.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/6577477">
+              <em class="phone-name">三星 Galaxy S9（SM-G9600/DS）4GB+128GB 谜夜黑 移动联通电信4G手机 双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">三星手机京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/8239683">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/8239683.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">849.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/8239683">
+              <em class="phone-name">小辣椒 红辣椒7P 4GB+64GB 美颜双摄全面屏 老人学生智能手机 移动联通电信4G全网通 双卡双待 炫彩蓝</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">小辣椒手机京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/27594357059">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/27594357059.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1348.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/27594357059">
+              <em class="phone-name">小米（MI） 小米6x 手机 曜石黑 全网通(6G+64G)</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">新松联手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7029523">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7029523.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">999.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7029523">
+              <em class="phone-name">华为畅享8e 全面屏后置双摄 3G+32G 金色 全网通版 移动联通电信4G手机 双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">华为京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/10889864876">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/10889864876.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2828.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/10889864876">
+              <em class="phone-name">Apple 苹果 iPhone 6s Plus 4G手机 玫瑰金 全网通 32GB</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">佳沪手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/5796667">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/5796667.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1499.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/5796667">
+              <em class="phone-name">YOTA YOTA3 双面屏阅读大屏手机 4+128G黑色 4G全网通 双卡双待手机</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">YOTA京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7938189">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7938189.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">3199.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7938189">
+              <em class="phone-name">Meitu 美图T9 浆果红 4GB+64GB 骁龙 全身美型 拍照手机  全面屏 脸部解锁 双卡双4G 全网通</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">美图京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7224901">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7224901.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">9999.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7224901">
+              <em class="phone-name">华为 HUAWEI Mate RS 保时捷设计 全面屏徕卡双摄游戏手机6G+256G玄黑色全网通移动联通电信4G手机双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">华为京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7320072">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7320072.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2099.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7320072">
+              <em class="phone-name">努比亚 nubia Z18mini 全面屏手机 6GB+128GB 耀钻黑 移动联通电信4G手机 双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">努比亚京东自营旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/28245104630">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/28245104630.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1329.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/28245104630">
+              <em class="phone-name">华为（HUAWEI） 荣耀9i手机 幻夜黑 全网通4+64G标配版</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">恒大和旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/21676582422">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/21676582422.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">980.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/21676582422">
+              <em class="phone-name">小米（MI） 小米红米5 Plus 全面屏 手机 黑色 全网通4G+64G</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">佳沪手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/27106471946">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/27106471946.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">5869.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/27106471946">
+              <em class="phone-name">Apple 苹果 iPhone 8 Plus手机 红色特别版 全网通 64GB</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">牧申手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/28298251328">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/28298251328.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2798.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/28298251328">
+              <em class="phone-name">vivo X21 新一代全面屏 双摄拍照手机 移动联通电信4G 双卡双待 6G+128G 冰钻黑</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">vivo官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/3829099">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/3829099.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">299.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/3829099">
+              <em class="phone-name">飞利浦（PHILIPS） E571 海军蓝 直板时尚大屏 超长待机 移动联通2G 双卡双待 老人手机 学生备用功能机</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">飞利浦手机京东自营旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/6069878">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/6069878.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">79.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/6069878">
+              <em class="phone-name">天语（K-TOUCH）Q21 移动/联通2G 直板按键 双卡双待 老人手机 学生备用功能机 金色</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">天语手机京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7381706">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7381706.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2899.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7381706">
+              <em class="phone-name">三星 Galaxy A9 Star（SM-G8850）4GB+64GB版 极夜黑 移动联通电信4G手机 双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">三星手机京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/27395321138">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/27395321138.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2449.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/27395321138">
+              <em class="phone-name">华为（HUAWEI） 荣耀10 GT游戏手机 幻影蓝 全网通6GB+128GB尊享版</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">佳沪手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/11365685926">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/11365685926.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">829.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/11365685926">
+              <em class="phone-name">华为（HUAWEI） 华为 畅享6S 移动联通电信 智能老人手机 双卡双待 金色 全网通4G(3G RAM+32G ROM)</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">众盛手机专营店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/5489665">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/5489665.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">4199.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/5489665">
+              <em class="phone-name">【豪华高配】Meitu 美图V6 墨尔本绿 6GB+128GB 全身美型 美颜 拍照 正品 手机 夜间美颜 双卡双4G 全网通</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">美图京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7399696">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7399696.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2998.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7399696">
+              <em class="phone-name">【屏幕指纹解锁礼盒版】vivo X21游戏手机 6GB+128GB 胜利红 移动联通电信全网通4G 双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">vivo京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7435202">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7435202.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">4499.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7435202">
+              <em class="phone-name">黑莓（BlackBerry）KEY2高配版 6GB+128GB双卡双待 4G全网通手机 黑色 移动联通电信手机</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">黑莓手机京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/7012230">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/7012230.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1998.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/7012230">
+              <em class="phone-name">魅族 15 全面屏手机 全网通公开版 4GB+64GB 砚黑 移动联通电信4G手机 双卡双待</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">魅族京东自营旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/5619586">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/5619586.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">169.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/5619586">
+              <em class="phone-name">天语（K-TOUCH）T91 移动联通2G 翻盖老人手机 超长待机 双卡双待 按键功能机 红色</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">天语手机京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/26187997701">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/26187997701.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1118.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/26187997701">
+              <em class="phone-name">小米（MI） 红米Note5 全面屏 手机 黑色 全网通 4G+64G</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">佳沪手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/24622881484">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/24622881484.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">159.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/24622881484">
+              <em class="phone-name">索爱 T3 移动/联通 三防老人手机 直板老年手机  超长待机 双卡双待 幻海蓝</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">索爱手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/27037944390">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/27037944390.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">1099.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/27037944390">
+              <em class="phone-name">锤子（smartisan） 坚果3手机 碳黑色 4G+64G 全网通</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">恒大和旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/32152695648">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/32152695648.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">2399.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/32152695648">
+              <em class="phone-name">华为（HUAWEI） 荣耀v10 手机 幻夜黑 尊享版（6GB+128GB）</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">鹏路网络手机旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/6165733">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/6165733.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">99.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/6165733">
+              <em class="phone-name">纽曼 Newman V18 黑色 移动/联通2G 老人手机 双卡双待 超长待机 三防功能机</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">纽曼京东自营官方旗舰店</span>
+              </div>
+        </li>
+      <li class="item">
+          <div>
+            <a target="_blank" href="/detail/25688362415">
+              <img width="220" height="220" source-data-lazy-img="" data-lazy-img="done" src="/images/phone/25688362415.jpg">
+            </a>
+          </div>
+          <div>
+            <strong class="price"><em class="symbol">￥</em><i class="number">559.00</i></strong>
+          </div>
+          <div style="overflow:hidden;height:32px;">
+            <a target="_blank" href="/detail/25688362415">
+              <em class="phone-name">华为（HUAWEI） 华为荣耀畅玩6手机 金色 全网通4G(2G+16G)标配版</em>
+            </a>
+          </div>
+          <div>
+            <span class="shop">牧申手机旗舰店</span>
+              </div>
+        </li>
+      </ul>
+    <div style="clear:both;margin-bottom: 50px;"></div>
+  </div>
+  <div class="container" style="text-align:center;padding-bottom: 100px;">
+    <div id="page-list" style="color:#333;margin: 0 auto;">
+        <a href="?pageIndex=1" class="page-button" style="width: 60px;">首页</a>
+          <b class="page-ignore">...</b>
+        <a href="?pageIndex=2" class="page-button">2</a>
+              <a href="?pageIndex=3" class="page-button">3</a>
+              <a href="javascript:void(0)" class="page-button active">4</a>
+              <a href="?pageIndex=5" class="page-button">5</a>
+              <a href="?pageIndex=6" class="page-button">6</a>
+              <b class="page-ignore">...</b>
+        <a href="?pageIndex=91" class="page-button" style="width: 60px;">尾页</a>
+          </div>
+    </div>
+</body>
+</html>
