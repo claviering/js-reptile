@@ -1,12 +1,11 @@
 const http = require('http')
 const cheerio = require('cheerio');
 const fs = require('fs')
-const baseUrl = 'http://gzjs.bazhuayu.com/?pageIndex='
-const DetailBaseUrl = 'http://gzjs.bazhuayu.com'
-const baseDir = './data/'
-const startPageNum = 1
-const endPageNum = 91
-if (fs.existsSync('detailUrl.txt')) {
+const baseUrl = 'http://gzjs.bazhuayu.com/?pageIndex='  // 内容爬取地址
+const DetailBaseUrl = 'http://gzjs.bazhuayu.com'  // 详情爬取地址
+const startPageNum = 1  // 开始页码
+const endPageNum = 91  // 结束页码
+if (fs.existsSync('detailUrl.txt')) {  // 判断文件是否存在，存在就删除
   fs.unlinkSync('detailUrl.txt')
 }
 if (fs.existsSync('tmpUrl.txt')) {
@@ -16,9 +15,10 @@ if (fs.existsSync('data.json')) {
   fs.unlinkSync('data.json')
 }
 
+var stream = fs.createWriteStream("data.json");
 
-function run (callback) {
-  for (let pageNum = startPageNum; pageNum <= endPageNum; pageNum++) {
+function run () {
+  for (let pageNum = startPageNum; pageNum <= endPageNum; pageNum++) {  // 循环 1 到 91 页
     let tmpUrl = baseUrl + pageNum
     http.get(tmpUrl, res => {
       let html = ''
@@ -32,19 +32,14 @@ function run (callback) {
         captionList.each(function(item) {
           var cap = cheerioHtml(this);
           var item = {
-              phoneName: cap.find('.phone-name').text(),
-              shop: cap.find('.shop').text(),
-              price: cap.find('.number').text(),
-              detail: cap.find('a').attr('href')
+              phoneName: cap.find('.phone-name').text(),  // 获取手机名字
+              shop: cap.find('.shop').text(),  // 获取商店名字
+              price: cap.find('.number').text(),  // 获取价格
+              detail: cap.find('a').attr('href')  // 获取查看详情地址
           }
 
           let tmpDetailUrl = DetailBaseUrl + item.detail
           http.get(tmpDetailUrl, res => {
-            const { statusCode } = res;
-            if (statusCode !== 200) {
-              callback({})
-              return
-            }
             let detailPage = ''
             res.setEncoding('utf8')
             res.on('data', chunk => {
@@ -52,10 +47,14 @@ function run (callback) {
             })
             res.on('end', () => {
               var cheerioDetailPage = cheerio.load(detailPage);
-              var count = cheerioDetailPage('.tab-item').attr('data-for', 'tab2').text();
+              var count = cheerioDetailPage('.tab-item').attr('data-for', 'tab2').text();  // 获取评价数
               let res = count.slice(7, -1)
               item.count = res
-              callback(item)
+              stream.write(JSON.stringify(item) + '\n', (err) => {  // 爬取的数据保存到文件
+                if (err) {
+                  return console.log('write file error', err);
+                }
+              })
             })
           }).on('error', (e) => {
             console.error(`Got detail error: ${e}`);
@@ -72,15 +71,8 @@ function run (callback) {
 }
 
 function saveFailUrl(fileName, data) {
-  fs.appendFile('./' + fileName, data + '\n', (err) => {
+  fs.appendFile('./' + fileName, data + '\n', (err) => {  // 失败的地址数据保存到文件
     if (err) throw err;
   });
 }
-var stream = fs.createWriteStream("data.json");
-run((res) => {
-  stream.write(JSON.stringify(res) + '\n', (err) => {
-    if (err) {
-      return console.log('write file error', err);
-    }
-  })
-})
+run()
