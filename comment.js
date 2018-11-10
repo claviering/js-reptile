@@ -1,5 +1,3 @@
-const http = require('http')
-const cheerio = require('cheerio');
 const fs = require('fs')
 const axios = require('axios')
 const commentDetailBaseUrl = 'http://gzjs.bazhuayu.com/comment/'
