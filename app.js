@@ -4,95 +4,76 @@ const fs = require('fs')
 const baseUrl = 'http://gzjs.bazhuayu.com/?pageIndex='
 const DetailBaseUrl = 'http://gzjs.bazhuayu.com'
 const baseDir = './data/'
-const startPageNum = 5
-const endPageNum = 10
+const startPageNum = 1
+const endPageNum = 91
 
-function downloadHtml(tmpDir, tmpFileName, html) {
-  fs.mkdir(tmpDir, { recursive: true }, (err) => {
-    if (err) throw err;
-    fs.writeFile(tmpDir + '/' + tmpFileName, html, function(err) {
-      if(err) {
-          return console.log(err);
-      }
-    }); 
-  })
-}
-
-function run () {
+async function run (callback) {
   for (let pageNum = startPageNum; pageNum <= endPageNum; pageNum++) {
-    let tmpDir = baseDir + pageNum
     let tmpUrl = baseUrl + pageNum
-    let tmpFileName = pageNum + '.html'
-    console.log('tmpUrl is ', tmpUrl);
     http.get(tmpUrl, res => {
       let html = ''
-      res.setEncoding('utf-8')
+      res.setEncoding('utf8')
       res.on('data', chunk => {
         html += chunk
       })
       res.on('end', () => {
-        parseHtml(html)
+        var cheerioHtml = cheerio.load(html);
+        var captionList = cheerioHtml('.item');
+        captionList.each(function(item) {
+          var cap = cheerioHtml(this);
+          var item = {
+              phoneName: cap.find('.phone-name').text(),
+              shop: cap.find('.shop').text(),
+              price: cap.find('.number').text(),
+              detail: cap.find('a').attr('href')
+          }
+
+          let tmpDetailUrl = DetailBaseUrl + item.detail
+          http.get(tmpDetailUrl, res => {
+            const { statusCode } = res;
+            if (statusCode !== 200) {
+              callback({})
+              return
+            }
+            let detailPage = ''
+            res.setEncoding('utf8')
+            res.on('data', chunk => {
+              detailPage += chunk
+            })
+            res.on('end', () => {
+              var cheerioDetailPage = cheerio.load(detailPage);
+              var count = cheerioDetailPage('.tab-item').attr('data-for', 'tab2').text();
+              let res = count.slice(7, -1)
+              item.count = res
+              callback(item)
+            })
+          }).on('error', (e) => {
+            console.error(`Got detail error: ${e}`);
+            saveFailUrl('detailUrl.txt', tmpDetailUrl)
+          });
+        });
       })
-    })
+    }).on('error', (e) => {
+      console.error(`Got error: ${e.message}`);
+      saveFailUrl('tmpUrl.txt', tmpUrl)
+    });
   }
-}
-let n = 1
-function getDetailEvaluateCount (itemList, callback) {
-  for (let item of itemList) {
-    let tmpDetailUrl = DetailBaseUrl + item.detail
-    n = n +1 
-    console.log('n is ', n);
-    console.log('tmpDetailUrl is ', tmpDetailUrl);
-    http.get(tmpDetailUrl, res => {
-      let html = ''
-      res.setEncoding('utf-8')
-      res.on('data', chunk => {
-        html += chunk
-      })
-      res.on('end', () => {
-        let count = getEvaluateCount(html)
-        item.count = count
-        callback(item)
-      })
-    })
-  }
+  
 }
 
-//解析html 获取内容
-function parseHtml(result) {
-  var $ = cheerio.load(result);
-  var captionList = $('.item');
-  var itemList = [];
-  captionList.each(function(item) {
-      var cap = $(this);
-      var item = {
-          phoneName: cap.find('.phone-name').text(),
-          shop: cap.find('.shop').text(),
-          price: cap.find('.number').text(),
-          detail: cap.find('a').attr('href')
-      }
-      itemList.push(item);
+function saveFailUrl(fileName, data) {
+  fs.appendFile('./' + fileName, data + '\n', (err) => {
+    if (err) throw err;
   });
-  let total = itemList.length
-  let resList = []
-  getDetailEvaluateCount(itemList, (res) => {
-    resList.push(res)
-    if (total === resList.length) {
-      // console.log('resList is ', resList);
-      fs.writeFile('data.json', JSON.stringify(resList), function(err) {
-        if(err) {
-            return console.log(err);
-        }
-      }); 
+}
+
+let resList = []
+var wstream = fs.createWriteStream('myOutput.txt');
+run((res) => {
+  resList.push(res)
+  fs.writeFile('data.json', JSON.stringify(resList), (err) => {
+    if (err) {
+      return console.log('write file error', err);
     }
   })
-}
-//解析html 评价数
-function getEvaluateCount(result) {
-  var $ = cheerio.load(result);
-  var count = $('.tab-item').attr('data-for', 'tab2').text();
-  let res = count.slice(7, -1)
-  return res
-}
-
-run()
+})
